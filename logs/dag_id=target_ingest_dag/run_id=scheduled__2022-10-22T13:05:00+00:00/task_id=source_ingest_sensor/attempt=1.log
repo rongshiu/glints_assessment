@@ -1,0 +1,31 @@
+[2022-10-22 14:05:01,800] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: target_ingest_dag.source_ingest_sensor scheduled__2022-10-22T13:05:00+00:00 [queued]>
+[2022-10-22 14:05:01,821] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: target_ingest_dag.source_ingest_sensor scheduled__2022-10-22T13:05:00+00:00 [queued]>
+[2022-10-22 14:05:01,822] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-22 14:05:01,823] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2022-10-22 14:05:01,825] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-22 14:05:01,851] {taskinstance.py:1377} INFO - Executing <Task(ExternalTaskSensor): source_ingest_sensor> on 2022-10-22 13:05:00+00:00
+[2022-10-22 14:05:01,862] {standard_task_runner.py:52} INFO - Started process 5384 to run task
+[2022-10-22 14:05:01,867] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'target_ingest_dag', 'source_ingest_sensor', 'scheduled__2022-10-22T13:05:00+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/target_ingest_dag.py', '--cfg-path', '/tmp/tmpsjkej_16', '--error-file', '/tmp/tmpgav3celg']
+[2022-10-22 14:05:01,869] {standard_task_runner.py:80} INFO - Job 27: Subtask source_ingest_sensor
+[2022-10-22 14:05:01,979] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/dagrun.py:485 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 14:05:02,000] {task_command.py:369} INFO - Running <TaskInstance: target_ingest_dag.source_ingest_sensor scheduled__2022-10-22T13:05:00+00:00 [running]> on host 865a121acdee
+[2022-10-22 14:05:02,053] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/dagrun.py:485 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 14:05:02,135] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/renderedtifields.py:213 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 14:05:02,154] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=rongshiu@gmail.com
+AIRFLOW_CTX_DAG_OWNER=rongshiu@gmail.com
+AIRFLOW_CTX_DAG_ID=target_ingest_dag
+AIRFLOW_CTX_TASK_ID=source_ingest_sensor
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-22T13:05:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-10-22T13:05:00+00:00
+[2022-10-22 14:05:02,156] {external_task.py:166} INFO - Poking for tasks ['source_ingestion_task'] in dag source_ingest_dag on 2022-10-22T13:00:00+00:00 ... 
+[2022-10-22 14:05:02,171] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/sensors/external_task.py:230 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 14:06:02,173] {external_task.py:166} INFO - Poking for tasks ['source_ingestion_task'] in dag source_ingest_dag on 2022-10-22T13:00:00+00:00 ... 
+[2022-10-22 14:06:02,210] {base.py:301} INFO - Success criteria met. Exiting.
+[2022-10-22 14:06:02,256] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=target_ingest_dag, task_id=source_ingest_sensor, execution_date=20221022T130500, start_date=20221022T140501, end_date=20221022T140602
+[2022-10-22 14:06:02,347] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-22 14:06:02,410] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/taskinstance.py:2445 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 14:06:02,434] {local_task_job.py:273} INFO - 4 downstream tasks scheduled from follow-on schedule check

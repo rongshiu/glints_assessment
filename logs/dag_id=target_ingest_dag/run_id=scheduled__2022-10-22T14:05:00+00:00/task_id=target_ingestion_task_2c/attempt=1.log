@@ -1,0 +1,34 @@
+[2022-10-22 15:06:04,361] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/taskinstance.py:2445 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 15:06:04,367] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: target_ingest_dag.target_ingestion_task_2c scheduled__2022-10-22T14:05:00+00:00 [queued]>
+[2022-10-22 15:06:04,389] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: target_ingest_dag.target_ingestion_task_2c scheduled__2022-10-22T14:05:00+00:00 [queued]>
+[2022-10-22 15:06:04,391] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-22 15:06:04,392] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2022-10-22 15:06:04,394] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-22 15:06:04,417] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): target_ingestion_task_2c> on 2022-10-22 14:05:00+00:00
+[2022-10-22 15:06:04,430] {standard_task_runner.py:52} INFO - Started process 6840 to run task
+[2022-10-22 15:06:04,438] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'target_ingest_dag', 'target_ingestion_task_2c', 'scheduled__2022-10-22T14:05:00+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/target_ingest_dag.py', '--cfg-path', '/tmp/tmpr3a18ye5', '--error-file', '/tmp/tmpcsvubwsf']
+[2022-10-22 15:06:04,441] {standard_task_runner.py:80} INFO - Job 36: Subtask target_ingestion_task_2c
+[2022-10-22 15:06:04,583] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/dagrun.py:485 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 15:06:04,613] {task_command.py:369} INFO - Running <TaskInstance: target_ingest_dag.target_ingestion_task_2c scheduled__2022-10-22T14:05:00+00:00 [running]> on host 865a121acdee
+[2022-10-22 15:06:04,680] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/dagrun.py:485 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 15:06:04,846] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/renderedtifields.py:213 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 15:06:04,874] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=rongshiu@gmail.com
+AIRFLOW_CTX_DAG_OWNER=rongshiu@gmail.com
+AIRFLOW_CTX_DAG_ID=target_ingest_dag
+AIRFLOW_CTX_TASK_ID=target_ingestion_task_2c
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-22T14:05:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-10-22T14:05:00+00:00
+[2022-10-22 15:06:04,880] {target_ingest.py:10} INFO - Reading SQL file from path
+[2022-10-22 15:06:04,891] {target_ingest.py:12} INFO - Read SQL file process completed
+[2022-10-22 15:06:04,893] {target_ingest.py:15} INFO - Getting data from source_db
+[2022-10-22 15:06:07,725] {target_ingest.py:17} INFO - Successfully get data from source_db
+[2022-10-22 15:06:07,729] {target_ingest.py:22} INFO - Uploading data to target_db
+[2022-10-22 15:06:08,916] {target_ingest.py:26} INFO - Successfully uploaded data to target_db
+[2022-10-22 15:06:08,918] {python.py:173} INFO - Done. Returned value was: None
+[2022-10-22 15:06:08,945] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=target_ingest_dag, task_id=target_ingestion_task_2c, execution_date=20221022T140500, start_date=20221022T150604, end_date=20221022T150608
+[2022-10-22 15:06:09,000] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-22 15:06:09,070] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -24,7 +24,7 @@ source_ingest_dag = DAG(
     dag_id='source_ingest_dag',
     default_args=default_args,
     description='dag created to schedule source data ingestion pipeline',
-    schedule_interval='0 * * * *', #runs at hour 0 every Sunday
+    schedule_interval='0 0 * * 0', #runs at hour 0 every Sunday
     catchup=False
 )
 

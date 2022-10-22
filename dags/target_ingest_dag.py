@@ -27,7 +27,7 @@ target_ingest_dag = DAG(
     dag_id='target_ingest_dag',
     default_args=default_args,
     description='dag created to schedule target data ingestion pipeline',
-    schedule_interval='5 * * * *', #runs at hour 0 min 5 every Sunday
+    schedule_interval='5 0 * * 0', #runs at hour 0 min 5 every Sunday
     catchup=False
 )
 
