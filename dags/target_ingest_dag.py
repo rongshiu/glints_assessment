@@ -4,13 +4,13 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 from target_ingest import target_ingest
-from secrets_management import get_source_db_conn,get_target_db_conn
+from secrets_management import get_source_db_conn, get_target_db_conn
 
 #get secrets
 # this is only for local setup usage
 ## This should be maintain in aws secrets manager in production env
-source_db_conn=get_source_db_conn
-target_db_conn=get_target_db_conn
+source_db_conn=get_source_db_conn()
+target_db_conn=get_target_db_conn()
 
 default_args = {
     'owner': 'rongshiu@gmail.com',

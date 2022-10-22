@@ -1,0 +1,62 @@
+[2022-10-22 10:10:53,834] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: source_ingest_dag.source_ingestion_task scheduled__2022-10-22T09:00:00+00:00 [queued]>
+[2022-10-22 10:10:53,849] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: source_ingest_dag.source_ingestion_task scheduled__2022-10-22T09:00:00+00:00 [queued]>
+[2022-10-22 10:10:53,850] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-22 10:10:53,851] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2022-10-22 10:10:53,852] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-22 10:10:53,873] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): source_ingestion_task> on 2022-10-22 09:00:00+00:00
+[2022-10-22 10:10:53,879] {standard_task_runner.py:52} INFO - Started process 882 to run task
+[2022-10-22 10:10:53,884] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'source_ingest_dag', 'source_ingestion_task', 'scheduled__2022-10-22T09:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/source_ingest_dag.py', '--cfg-path', '/tmp/tmpqcy54zkb', '--error-file', '/tmp/tmpr7hac8af']
+[2022-10-22 10:10:53,886] {standard_task_runner.py:80} INFO - Job 2: Subtask source_ingestion_task
+[2022-10-22 10:10:53,996] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/dagrun.py:485 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 10:10:54,006] {task_command.py:369} INFO - Running <TaskInstance: source_ingest_dag.source_ingestion_task scheduled__2022-10-22T09:00:00+00:00 [running]> on host d162a828b547
+[2022-10-22 10:10:54,068] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/dagrun.py:485 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 10:10:54,148] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/models/renderedtifields.py:213 SAWarning: TypeDecorator UtcDateTime(timezone=True) will not produce a cache key because the ``cache_ok`` attribute is not set to True.  This can have significant performance implications including some performance degradations in comparison to prior SQLAlchemy versions.  Set this attribute to True if this type object's state is safe to use in a cache key, or False to disable this warning. (Background on this error at: https://sqlalche.me/e/14/cprf)
+[2022-10-22 10:10:54,169] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=rongshiu@gmail.com
+AIRFLOW_CTX_DAG_OWNER=rongshiu@gmail.com
+AIRFLOW_CTX_DAG_ID=source_ingest_dag
+AIRFLOW_CTX_TASK_ID=source_ingestion_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-22T09:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-10-22T09:00:00+00:00
+[2022-10-22 10:10:54,175] {source_ingest.py:9} INFO - Getting source data
+[2022-10-22 10:12:02,332] {source_ingest.py:13} INFO - Successfully get source data
+[2022-10-22 10:12:02,337] {source_ingest.py:19} INFO - Uploading source data
+[2022-10-22 10:12:02,557] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/source_ingest.py", line 22, in source_ingest
+    chunksize=10000, schema='public')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 2225, in to_sql
+    table.create()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 856, in create
+    if self.exists():
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 840, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 2236, in has_table
+    return len(self.execute(query, [name]).fetchall()) > 0
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 2054, in execute
+    cur = self.con.cursor()
+AttributeError: 'function' object has no attribute 'cursor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/source_ingest.py", line 25, in source_ingest
+    logger.error('source_ingest pipeline failed due to {error}',error=e)
+  File "/usr/local/lib/python3.7/logging/__init__.py", line 1407, in error
+    self._log(ERROR, msg, args, **kwargs)
+TypeError: _log() got an unexpected keyword argument 'error'
+[2022-10-22 10:12:02,586] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=source_ingest_dag, task_id=source_ingestion_task, execution_date=20221022T090000, start_date=20221022T101053, end_date=20221022T101202
+[2022-10-22 10:12:02,606] {standard_task_runner.py:97} ERROR - Failed to execute job 2 for task source_ingestion_task (_log() got an unexpected keyword argument 'error'; 882)
+[2022-10-22 10:12:02,649] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-10-22 10:12:02,704] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -7,7 +7,7 @@ from secrets_management import get_source_db_conn
 # get secrets
 # this is only for local setup usage
 ## This should be maintain in aws secrets manager in production env
-source_db_conn=get_source_db_conn
+source_db_conn=get_source_db_conn()
 
 default_args = {
     'owner': 'rongshiu@gmail.com',
