@@ -1,0 +1,97 @@
+---
+version: '3.4'
+
+x-common:
+  &common
+  build: .
+  user: "${AIRFLOW_UID}:0"
+  env_file: 
+    - .env
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - /var/run/docker.sock:/var/run/docker.sock
+
+x-depends-on:
+  &depends-on
+  depends_on:
+    postgres:
+      condition: service_healthy
+    airflow-init:
+      condition: service_completed_successfully
+
+services:
+  postgres:
+    image: postgres:15.0-alpine
+    container_name: postgres
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    env_file:
+      - .env
+
+  source_db:
+    image: postgres:15.0-alpine
+    container_name: source_db
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "source_db"]
+      interval: 5s
+      retries: 5
+    environment:
+      - POSTGRES_USER=source_db
+      - POSTGRES_PASSWORD=source_db
+      - POSTGRES_DB=source_db
+
+  target_db:
+    image: postgres:15.0-alpine
+    container_name: target_db
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "target_db"]
+      interval: 5s
+      retries: 5
+    environment:
+      - POSTGRES_USER=target_db
+      - POSTGRES_PASSWORD=target_db
+      - POSTGRES_DB=target_db
+
+  scheduler:
+    <<: *common
+    <<: *depends-on
+    container_name: airflow-scheduler
+    command: scheduler
+    restart: on-failure
+    ports:
+      - "8793:8793"
+
+  webserver:
+    <<: *common
+    <<: *depends-on
+    container_name: airflow-webserver
+    restart: always
+    command: webserver
+    ports:
+      - "5884:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:5884/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+  
+  airflow-init:
+    <<: *common
+    container_name: airflow-init
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /sources/logs /sources/dags /sources/plugins
+        chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
+        exec /entrypoint airflow version
