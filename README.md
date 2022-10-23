@@ -46,6 +46,7 @@ Thought Process:
     * I have decided to create 4 datamarts for 4 different use cases as specified in step 2, this could improve load time by having minimal data transformation on visualization tool
 
 Services Credentials:
+
 Service: airflow
 username: airflow
 password: airflow123
