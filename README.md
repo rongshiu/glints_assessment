@@ -47,28 +47,28 @@ Thought Process:
 
 Services Credentials:
 
-Service: airflow
-username: airflow
-password: airflow123
-local port: 5884
+- Service: airflow
+    * username: airflow
+    * password: airflow123
+    * local port: 5884
 
-Service: source_db (postgres)
-username: source_db
-username: source_db
-host: source_db
-local port: 5432                       
-db: source_db
+- Service: source_db (postgres)
+    * username: source_db
+    * username: source_db
+    * host: source_db
+    * local port: 5432                       
+    * db: source_db
 
-Service: target_db (postgres)
-username: target_db
-username: target_db
-host: target_db
-local port: 5433                      
-db: target_db
+- Service: target_db (postgres)
+    * username: target_db
+    * username: target_db
+    * host: target_db
+    * local port: 5433                      
+    * db: target_db
 
-Service: airflow (postgres)
-username: airflow
-username: airflow
-host: postgres
-local port: 5434                 
-db: airflow
+- Service: airflow (postgres)
+    * username: airflow
+    * username: airflow
+    * host: postgres
+    * local port: 5434                 
+    * db: airflow
